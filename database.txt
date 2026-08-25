@@ -1,0 +1,39 @@
+create database khoj;
+use khoj;
+
+create table users(username varchar(50) primary key,
+password varchar(100),
+contact_no varchar(20),
+email varchar(50), 
+address varchar(65),
+usertype varchar(30));
+
+create table addpassenger(ticket_id int primary key,
+username varchar(50),
+train_no varchar(50),
+compartment_no varchar(30),
+seat_no varchar(40),
+travel_date varchar(30),
+contact_no varchar(20),
+email varchar(50));
+
+create table lostcomplaint(complaint_id int primary key,
+username varchar(50),
+train_no varchar(50),
+compartment_no varchar(30),
+seat_no varchar(40),
+item_description varchar(550),
+lost_date varchar(30),
+status varchar(20),
+FOREIGN KEY (username) REFERENCES users(username));
+
+create table medical(username varchar(50),
+train_no varchar(50),
+compartment_no varchar(30),
+seat_no varchar(40),
+symptoms varchar(300),
+report_date varchar(30),
+status varchar(300));
+
+
+

@@ -1,0 +1,8 @@
+train: /content/drive/MyDrive/Data/images/train/ 
+val:  /content/drive/MyDrive/Data/images/valid/
+
+# number of classes
+nc: 51
+
+# Classes
+names: ['Backpack', 'Belt-bag', 'Car-key-Chevrolet', 'Car-key-Ford', 'Car-key-Honda', 'Car-key-Hyundai', 'Car-key-Kia', 'Car-key-Lexus', 'Car-key-Mercedes-Benz', 'Car-key-Mitsubishi', 'Car-key-Nissan', 'Car-key-Toyota', 'Car-key-Volkswagen', 'Car-key-non-specific', 'Card', 'Cross-bag', 'Electronic-devices-AirPods', 'Electronic-devices-AirPods-case', 'Electronic-devices-charger', 'Electronic-devices-earphones', 'Electronic-devices-headphones', 'Electronic-devices-laptop', 'Electronic-devices-laptop-charger', 'Electronic-devices-phone', 'Electronic-devices-phone-charger', 'Electronic-devices-powerbank', 'Electronic-devices-tablet', 'Glasses', 'Handbag', 'Key', 'Laptop-bag', 'Smart-watch-black', 'Smart-watch-gold', 'Smart-watch-pink', 'Smart-watch-silver', 'Smart-watch-white', 'Sunglasses', 'Travel-bag', 'Wallet-black', 'Wallet-brown', 'Wallet-grey', 'Wallet-multicolor', 'Wallet-pink', 'Wallet-red', 'Wallet-turquoise', 'Watch-black', 'Watch-blue', 'Watch-brown', 'Watch-gold', 'Watch-silver', 'Watch-white']

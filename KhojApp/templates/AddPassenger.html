@@ -1,0 +1,138 @@
+{% load static %}
+<html>
+<head>
+<title>Khoj</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.name.value.length==0)
+	{
+	alert("Please Enter passenger name");
+	formObj.name.focus();
+	return false;
+	}
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter train no");
+	formObj.t1.focus();
+	return false;
+	}
+	
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter compartment no");
+	formObj.t2.focus();
+	return false;
+	}
+
+	
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter seat No");
+	formObj.t3.focus();
+	return false;
+	}
+	
+	if(formObj.t4.value.length==0){
+		window.alert("travel date must be enter");
+		formObj.t4.focus();
+		return false;
+	}
+
+	if(formObj.t5.value.length==0)
+	{
+	alert("Please Enter Contact No");
+	formObj.t5.focus();
+	return false;
+	}
+	if(isNaN(formObj.t5.value)){
+		alert("Contact No must be numeric");
+		formObj.t5.focus();
+		return false;
+	}
+	if(formObj.t6.value.length==0){
+		window.alert("Email ID must be enter");
+		formObj.t6.focus();
+		return false;
+	}
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(gmail+\.)+(com)+$/;
+	if (!filter.test(formObj.t6.value)) {
+		window.alert('enter a valid email address');
+		formObj.t6.focus();
+		return false;
+	}
+	
+	return true;
+	}
+	</script>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>KHOJ: A Lost & Found and Safety Assistance System for Railway Passengers</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+           <ul>
+      <li><a href="{% url 'AddPassenger' %}"><font size="3" color="black">Add Passenger</a></li>
+      <li><a href="{% url 'AddVolunteer' %}"><font size="3" color="black">Add Volunteer</a></li>
+	  <li><a href="{% url 'ViewVolunteer' %}"><font size="3" color="black">View Volunteers</a></li>	 
+	  <li><a href="{% url 'ViewComplaints' %}"><font size="3" color="black">View Complaints</a></li>	 
+	    <li><a href="{% url 'index' %}"><font size="3" color="black">Logout</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1020" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'AddPassengerAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Add Passenger Screen</b></h2>
+   
+	<font size="3" color="red"><center>{{ data|safe }}</center></font>
+						
+						<table align="center" width="30%" >
+
+						 <tr><td><font size='' color="black">Passenger&nbsp;Name</b></td>
+			 <td><input type="text" name="name" style="font-family: Comic Sans MS" size="30"></td></tr>
+
+			 <tr><td><font size='' color="black">Train&nbsp;No/Name</b></td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="30"></td></tr>
+
+			         
+		  <tr><td><font size='' color="black">Compartment&nbsp;No</b></td><td><input name="t2" type="number" size="10"></td></tr>
+
+		   <tr><td><font size='' color="black">Seat&nbsp;No</b></td>
+			 <td><input type="number" name="t3" style="font-family: Comic Sans MS" size="20"></td></tr>
+
+		
+			<tr><td><font size='' color="black">Travel&nbsp;Date</b></td>
+			<td><input name="t4" type="date" size="30"></td></td></tr>
+
+			<tr><td><font size='' color="black">Contact&nbsp;No</b></td>
+			 <td><input type="text" name="t5" style="font-family: Comic Sans MS" size="20"></td></tr>
+
+		
+			<tr><td><font size='' color="black">Email&nbsp;ID</b></td>
+			<td><input name="t6" type="Text" size="40"></td></td></tr>
+		   
+ 
+			
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

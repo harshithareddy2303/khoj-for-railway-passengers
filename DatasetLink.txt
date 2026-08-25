@@ -1,0 +1,39 @@
+https://universe.roboflow.com/mercys-workspace-7ti14/lost-and-found-items
+
+create table appointments(appointment_id int primary key,
+patients_id int,
+physician_id int,
+symptom_details varchar(150),
+appointment_date date,
+booking_date date,
+FOREIGN KEY (patients_id) REFERENCES patients(patients_id),
+FOREIGN KEY (physician_id) REFERENCES General_Practioner(physician_id));
+
+pip install bcrypt
+import bcrypt
+
+# 1. Define the password (must be a byte string, i.e., start with 'b')
+password = b"super secret password"
+
+# 2. Generate a random salt and hash the password in a single step
+# bcrypt.gensalt() generates a secure, random salt with a default cost factor of 12.
+hashed_password = bcrypt.hashpw(password, bcrypt.gensalt())
+
+# Print the hashed password to see the result (contains the version, cost, salt, and hash)
+print(f"Hashed Password: {hashed_password.decode('utf-8')}")
+
+# 3. Verify a password during login
+# The checkpw() function handles the comparison securely and automatically extracts the salt from the stored hash.
+user_provided_password = b"super secret password" # User input (must also be a byte string)
+
+if bcrypt.checkpw(user_provided_password, hashed_password):
+    print("Password is correct. Login successful!")
+else:
+    print("Invalid password. Access denied.")
+
+# Example with an incorrect password
+wrong_password = b"wrong password"
+if bcrypt.checkpw(wrong_password, hashed_password):
+    print("Incorrect check succeeded - something is wrong!")
+else:
+    print("Correctly identified wrong password.")

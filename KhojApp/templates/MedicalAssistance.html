@@ -1,0 +1,99 @@
+{% load static %}
+<html>
+<head>
+<title>Khoj</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter train no");
+	formObj.t1.focus();
+	return false;
+	}
+	
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter compartment no");
+	formObj.t2.focus();
+	return false;
+	}
+
+	
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter seat No");
+	formObj.t3.focus();
+	return false;
+	}
+	
+	if(formObj.t4.value.length==0){
+		window.alert("health symptoms must be enter");
+		formObj.t4.focus();
+		return false;
+	}
+	
+	return true;
+	}
+	</script>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>KHOJ: A Lost & Found and Safety Assistance System for Railway Passengers</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+           <ul>
+      
+      <li><a href="{% url 'LostFound' %}"><font size="3" color="black">Lost & Found</a></li>
+	  <li><a href="{% url 'MedicalAssistance' %}"><font size="3" color="black">Medical Assistance</a></li>	 
+	   <li><a href="{% url 'Safety' %}"><font size="3" color="black">Women's Safety & Companions</a></li>	
+	     <li><a href="{% url 'CheckStatus' %}"><font size="3" color="black">View Status</a></li>	
+	   <li><a href="{% url 'index' %}"><font size="3" color="black">Logout</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1020" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'MedicalAssistanceAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Medical Assistance Screen</b></h2>
+   
+	<font size="3" color="red"><center>{{ data|safe }}</center></font>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size='' color="black">Train&nbsp;No/Name</b></td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="30"></td></tr>
+
+			         
+		  <tr><td><font size='' color="black">Compartment&nbsp;No</b></td><td><input name="t2" type="number" size="10"></td></tr>
+
+		   <tr><td><font size='' color="black">Seat&nbsp;No</b></td>
+			 <td><input type="number" name="t3" style="font-family: Comic Sans MS" size="20"></td></tr>
+
+		
+			<tr><td><font size='' color="black">Health&nbsp;Symptoms</b></td>
+			<td><input name="t4" type="Text" size="70"></td></td></tr>
+		   
+ 
+			
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

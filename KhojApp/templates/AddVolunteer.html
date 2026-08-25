@@ -1,0 +1,121 @@
+{% load static %}
+<html>
+<head>
+<title>Khoj</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please Enter username");
+	formObj.t1.focus();
+	return false;
+	}
+	
+	if(formObj.t2.value.length==0)
+	{
+	alert("Please Enter password");
+	formObj.t2.focus();
+	return false;
+	}
+
+	
+	if(formObj.t3.value.length==0)
+	{
+	alert("Please Enter Contact No");
+	formObj.t3.focus();
+	return false;
+	}
+	if(isNaN(formObj.t3.value)){
+		alert("Contact No must be numeric");
+		formObj.t3.focus();
+		return false;
+	}
+	if(formObj.t4.value.length==0){
+		window.alert("Email ID must be enter");
+		formObj.t4.focus();
+		return false;
+	}
+	var filter = /^([a-zA-Z0-9_\.\-])+\@(gmail+\.)+(com)+$/;
+	if (!filter.test(formObj.t4.value)) {
+		window.alert('enter a valid email address');
+		formObj.t4.focus();
+		return false;
+	}
+		
+	if(formObj.t5.value.length==0)
+	{
+	alert("Please Enter Address");
+	formObj.t5.focus();
+	return false;
+	}
+	return true;
+	}
+	</script>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>KHOJ: A Lost & Found and Safety Assistance System for Railway Passengers</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+          <ul>
+      <li><a href="{% url 'AddPassenger' %}"><font size="3" color="black">Add Passenger</a></li>
+      <li><a href="{% url 'AddVolunteer' %}"><font size="3" color="black">Add Volunteer</a></li>
+	  <li><a href="{% url 'ViewVolunteer' %}"><font size="3" color="black">View Volunteers</a></li>	 
+	  <li><a href="{% url 'ViewComplaints' %}"><font size="3" color="black">View Complaints</a></li>	 
+	    <li><a href="{% url 'index' %}"><font size="3" color="black">Logout</a></li>
+   </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1020" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'AddVolunteerAction' %} onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Add New Volunteer Screen</b></h2>
+   
+	<font size="3" color="red"><center>{{ data|safe }}</center></font>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size='' color="black">Username</b></td>
+			 <td><input type="text" name="t1" style="font-family: Comic Sans MS" size="30"></td></tr>
+
+			         
+		  <tr><td><font size='' color="black">Password</b></td><td><input name="t2" type="password" size="30"></td></tr>
+
+		   <tr><td><font size='' color="black">Contact&nbsp;No</b></td>
+			 <td><input type="text" name="t3" style="font-family: Comic Sans MS" size="20"></td></tr>
+
+		
+			<tr><td><font size='' color="black">Email&nbsp;ID</b></td>
+			<td><input name="t4" type="Text" size="40"></td></td></tr>
+		   
+ 
+          <tr><td><font size='' color="black">Address</b></td><td><input name="t5" type="Text" size="70"></td></td></tr>
+
+		   <tr><td><font size='' color="black">User&nbsp;Type</b></td><td><select name="t6">
+		   <option value="Volunteer">Volunteer</option>
+		   </select>
+		   </td></td></tr>
+
+			
+			<tr><td></td><td><input type="submit" value="Submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>

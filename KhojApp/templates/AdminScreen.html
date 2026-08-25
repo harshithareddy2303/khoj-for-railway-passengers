@@ -1,0 +1,51 @@
+{% load static %}
+<html>
+<head>
+<title>Khoj</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<style>
+table, th, td {
+  border: 3px solid blue;
+  border-collapse: collapse;
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: #D6EEEE;
+}
+</style>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>KHOJ: A Lost & Found and Safety Assistance System for Railway Passengers</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+          <ul>
+            <ul>
+      <li><a href="{% url 'AddPassenger' %}"><font size="3" color="black">Add Passenger</a></li>
+      <li><a href="{% url 'AddVolunteer' %}"><font size="3" color="black">Add Volunteer</a></li>
+	  <li><a href="{% url 'ViewVolunteer' %}"><font size="3" color="black">View Volunteers</a></li>	 
+	  <li><a href="{% url 'ViewComplaints' %}"><font size="3" color="black">View Complaints</a></li>	 
+	    <li><a href="{% url 'index' %}"><font size="3" color="black">Logout</a></li>
+   </ul>
+          </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1020" height="286" alt="" /></div>
+
+		<font size="3" color="black"><center>{{ data|safe }}</center></font><br/>
+		<img src="data:image/png;base64, {{ img }}" alt="" />
+
+       
+  </body>
+</html>

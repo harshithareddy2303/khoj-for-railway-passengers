@@ -1,0 +1,52 @@
+{% load static %}
+<html>
+<head>
+<title>Khoj</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>KHOJ: A Lost & Found and Safety Assistance System for Railway Passengers</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+          <ul>
+           <ul>
+      <li><a href="{% url 'index' %}"><font size="3" color="black">Home</a></li>
+	     <li><a href="{% url 'AdminLogin' %}"><font size="3" color="black">Railway Admin Login</a></li>
+		 <li><a href="{% url 'VolunteerLogin' %}"><font size="3" color="black">Volunteer Login</a></li>
+		 <li><a href="{% url 'UserLogin' %}"><font size="3" color="black">User Login</a></li>
+	 <li><a href="{% url 'Signup' %}"><font size="3" color="black">New User Signup Here</a></li>
+   </ul>
+          </ul>
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1020" height="286" alt="" /></div>
+
+		{{ data|safe }}
+
+       <p align="justify"><font size="3" style="font-family: Comic Sans MS" color="black"><center>Millions of people use trains every day as the main mode of public transit. Passengers must deal with issues including
+misplaced possessions, delayed medical assistance, and worries about the safety of women. In the absence of a systematic, realtime
+support system, these problems are resolved inefficiently and slowly. KHOJ is a web-based platform that integrates real-time
+medical help, a travel companion matching system for women's safety, and Lost & Found reporting to solve these issues. To
+guarantee organised complaint monitoring and resolution, the platform uses a user-friendly interface developed using Streamlit
+for frontend development and MySQL for backend data administration.</p>
+<p align="justify"><font size="3" style="font-family: Comic Sans MS" color="black">KHOJ's role-based authentication system is a crucial component that distinguishes between volunteers, users, and railway
+employees, guaranteeing safe and effective complaint resolution. By matching passengers with available volunteers based on
+location and experience, the automatic volunteer assignment tool expedites the resolution of issues. Additionally, KHOJ offers
+real-time complaint monitoring, allowing consumers to keep an eye on the progress of their problems via an easy-to-use
+dashboard.</center>
+</p>
+ 
+  </body>
+</html>
